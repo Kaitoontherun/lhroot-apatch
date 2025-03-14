@@ -24,11 +24,10 @@ else
   MAGISK_VER_CODE=$(magisk -V)
 fi
 
-# Magisk Mod Directories
-MODPATH=/data/adb/modules/$ID
-$KSU && MOUNTPATH=$(dirname $MODPATH) || MOUNTPATH="$(magisk --path)/.magisk/modules"
+# Apatch Mod Directory
+MOUNTPATH="/data/adb/modules"
 MODDIR="$MOUNTPATH/$ID"
-[ ! -d $MODDIR ] && { echo "Module not detected!"; exit 1; }
+[ ! -d "$MODDIR" ] && { echo "Module not detected!"; exit 1; }
 
 if command -v busybox &> /dev/null
 then
